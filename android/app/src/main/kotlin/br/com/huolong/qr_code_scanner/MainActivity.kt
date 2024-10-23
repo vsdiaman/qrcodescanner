@@ -1,4 +1,4 @@
-package br.com.huolong.qr_code_scanner
+package br.huolong.labs.scanner
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -66,6 +66,17 @@ mixin _$QRStore on _QRStore, Store {
   }
 
   @override
+  void reloadScanner() {
+    final _$actionInfo =
+        _$_QRStoreActionController.startAction(name: '_QRStore.reloadScanner');
+    try {
+      return super.reloadScanner();
+    } finally {
+      _$_QRStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 qrCode: ${qrCode},

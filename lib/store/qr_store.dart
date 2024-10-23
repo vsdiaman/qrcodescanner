@@ -21,4 +21,9 @@ abstract class _QRStore with Store {
   void resetScanner() {
     isScanCompleted = false;
   }
+
+  @action
+  void reloadScanner() {
+    isScanCompleted = false;
+  }
 }

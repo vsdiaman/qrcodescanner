@@ -18,15 +18,23 @@ class QRScannerComponent extends StatelessWidget {
             onDetect: (barcode) {
               final String code = barcode.barcodes.first.rawValue ?? "---";
               if (!qrStore.isScanCompleted) {
+                // qrStore.isScanCompleted = true; // Marca o scan como completo
                 qrStore.setQRCode(code);
-                Navigator.pushNamed(context, '/result');
+                Navigator.pushNamed(
+                  context,
+                  '/result',
+                ).then((_) {
+                  qrStore.resetScanner();
+                });
               }
             },
           ),
           QROverlay(),
-          if (qrStore.isScanCompleted)
+          if (qrStore.isScanCompleted == true)
             QRScannerButton(
-              onPressed: qrStore.resetScanner,
+              resetScanner: () {
+                qrStore.reloadScanner();
+              },
             ),
         ],
       ),
